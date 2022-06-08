@@ -9,12 +9,13 @@ import matplotlib.pyplot as plt
 st.title('Big Three')
 accum = st.checkbox("Accumulative", value=True)
 since_year = st.slider('Since year', value=2000, min_value=2000, max_value=today.year)
+to_year = st.slider('To year', value=today.year, min_value=since_year, max_value=today.year)
 
 rafa, djoko, federer = get_big_three()
 
-years, rafa_arr = rafa.get_slams_per_year(get_years=True, since_year=since_year, accumulative=accum)
-djoko_arr = djoko.get_slams_per_year(since_year=since_year, accumulative=accum)
-federer_arr = federer.get_slams_per_year(since_year=since_year, accumulative=accum)
+years, rafa_arr = rafa.get_slams_per_year(get_years=True, since_year=since_year, to_year=to_year, accumulative=accum)
+djoko_arr = djoko.get_slams_per_year(since_year=since_year, to_year=to_year, accumulative=accum)
+federer_arr = federer.get_slams_per_year(since_year=since_year, to_year=to_year, accumulative=accum)
 
 if accum:
     figure = plt.figure()

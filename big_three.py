@@ -37,9 +37,9 @@ class TenisPlayer():
             
         return count
     
-    def get_slams_per_year(self, since_year=2000, get_years=False, accumulative=True) -> list:
+    def get_slams_per_year(self, since_year=2000, to_year=today.year, get_years=False, accumulative=True) -> list:
         array = []
-        year_range = range(since_year, today.year + 1)
+        year_range = range(since_year, to_year + 1)
         y_count = 0
         for year in year_range:
             if not accumulative:
